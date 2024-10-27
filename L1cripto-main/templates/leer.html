@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leer Mensajes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/leer.css') }}">
+</head>
+    <body>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+            <a class="boton" href="{{ url_for('pagina_app') }}">Volver</a>
+        {% else %}
+            <h1 id="encabezado">Tus Mensajes</h1>
+        <div id="contenedor_global">
+            {% for id, emisor, mensaje in mensajes %}
+                <div id="contenido_leer">
+                    <h2>De: {{ emisor }}</h2>
+                    <p>{{ mensaje }}</p>
+                    <form id="formulario" method="POST" action="/borrar_carta">
+                        <input type="hidden" name="id_mensaje" value="{{ id }}"> <!--Usar ID del mensaje para borrar-->
+                        <button class="boton" type="submit" onclick="marcarComoLeido()">Marcar como leído</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+        <a class="boton" href="{{ url_for('pagina_app') }}">Volver</a>
+        {% endif %}
+    </body>
+</html>

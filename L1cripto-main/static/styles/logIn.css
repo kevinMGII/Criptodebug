@@ -1,0 +1,234 @@
+
+#contenedor_general_logIn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../Imagenes/imagen_fondo.jpg");
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+}
+
+#contenedor_logIn {
+    max-width: 500px;
+    width: 100%;
+}
+
+.titulo {
+    font-size: 250%;
+    color:#bbe1fa;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#logIn_usuario {
+    position: relative;
+    width: 100%;
+    padding: 50px 30px;
+    background-color: mediumpurple;
+
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.15);
+
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+
+    box-sizing: border-box;
+}
+
+#logIn_usuario input {
+    font-family: 'Overpass', sans-serif;
+    font-size: 110%;
+    color: #1b262c;
+
+    display: block;
+    width: 100%;
+    height: 40px;
+
+    margin-bottom: 10px;
+    padding: 5px 5px 5px 10px;
+
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+}
+
+#logIn_usuario input::placeholder {
+    font-family: 'Overpass', sans-serif;
+    color: #E4E4E4;
+}
+
+#logIn_usuario button {
+    font-family: 'Overpass', sans-serif;
+    font-size: 110%;
+    color:#1b262c;
+    width: 100%;
+    height: 40px;
+    border: none;
+
+    border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+
+    background-color: #bbe1fa;
+
+    margin-top: 10px;
+}
+
+#logIn_usuario button:hover {
+    background-color: #0f4c75;
+    color:#bbe1fa;
+}
+
+.pie-form {
+    font-size: 90%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.pie-form a {
+    display: block;
+    text-decoration: none;
+    color: #bbe1fa;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.pie-form a:hover {
+    color: #0f4c75;
+}
+
+/* Estilo para el enlace de Cancelar */
+.cancelar-form {
+    position: absolute;
+    text-align: right; /* Alinear a la derecha */
+    bottom: 0;
+    right: 0;
+    margin: 10px 10px;
+}
+
+.cancelar-form a {
+    text-decoration: none;
+    color: #3de1e6; /* Color diferente para el enlace de Cancelar */
+    font-weight: bold; /* Negrita para destacar */
+}
+
+.cancelar-form a:hover {
+    color: #34a4d5; /* Color al hacer hover */
+}
+
+
+/* Estilos del fondo del modal */
+.modal {
+    display: none;
+    position: fixed;
+    align-items: center;
+    justify-content: center; /* Centrado horizontal */
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: #e0fbfc; /* Color de fondo suave */
+    color: #005f73; /* Color del texto */
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 95, 115, 0.3); /* Sombra suave */
+    border: 2px solid #005f73; /* Borde sutil */
+}
+
+/* Título del modal */
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    color: #005f73; /* Color principal */
+    border-bottom: 2px solid #0a9396;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Campos de entrada */
+.modal-content input[type="password"] {
+    width: 80%;
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.modal-content input[type="password"]:focus {
+    border-color: #0a9396; /* Resalta en color al enfocarse */
+}
+
+.modal-content button {
+    background: none;
+    color: #005f73;
+    border: none;
+    font-size: 1em;
+    padding: 5px 0;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: color 0.3s;
+}
+
+.modal-content button::after {
+    content: '';
+    color: #0a9396;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #005f73;
+    transition: width 0.3s;
+}
+
+.modal-content button:hover {
+    color: #0a9396; /* Cambia de color al pasar el cursor */
+}
+
+.modal-content button:hover::after {
+    width: 100%; /* Expande la línea del borde inferior */
+}
+
+/* Botón de cerrar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2em;
+    color: #7082e1;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+

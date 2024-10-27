@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css') }}">
+</head>
+<body>
+    <div id="contenedor_app">
+        <div id="header">
+            <h1 id="titulo">What's Up!</h1>
+            <div id="contenedor_perfil"> <!-- Añadimos un contenedor relativo -->
+                <img id="perfil_icono" src="{{ url_for('static', filename='Imagenes/perfil-icono.png') }}" alt="Imagen de Perfil" onclick="toggleMenu()">
+                <div id="menu">
+                    <div class="menu-item" onclick="cerrarSesion()">Cerrar Sesión</div>
+                </div>
+            </div>
+        </div>
+        <h1 id="bienvenida">Bienvenido {{ usuario }} </h1>
+        <div id="contenedor_botones">
+            <a class="boton" href="{{ url_for('pagina_leer') }}">Leer mensaje</a>
+            <a class="boton" href="{{ url_for('pagina_enviar') }}">Enviar mensaje</a>
+        </div>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'none' || menu.style.display === '' ? 'block' : 'none';
+        }
+
+        function cerrarSesion() {
+            // Redirige a la página de cerrar sesión o hace la solicitud correspondiente
+            window.location.href = "{{ url_for('pagina_logIn') }}";
+        }
+
+        // Opcional: cerrar el menú si se hace clic fuera de él
+        window.onclick = function(event) {
+            if (!event.target.matches('#perfil_icono')) {
+                const menu = document.getElementById('menu');
+                if (menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                }
+            }
+        };
+    </script>
+</body>
+</html>
+

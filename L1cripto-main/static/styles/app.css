@@ -1,0 +1,116 @@
+/* Hacemos que la página ocupe toda la pantalla */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal que ocupa toda la pantalla */
+#contenedor_app {
+    background-image: url("../Imagenes/imagen_fondo.jpg");
+    background-size: cover;         /* Asegura que la imagen cubra toda la pantalla */
+    background-position: center;    /* La imagen se centra */
+    background-repeat: no-repeat;   /* La imagen no se repite */
+    height: 100vh;                  /* Usar vh para que ocupe toda la altura de la ventana */
+    width: 100vw;                   /* Usar vw para que ocupe toda la anchura de la ventana */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;             /* Necesario para posicionar elementos hijos */
+}
+
+/* Estilo del título */
+#titulo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 10%;
+    text-align: center;
+    font-size: 48px;
+    color: #333;
+}
+
+#contenedor_perfil {
+    display: flex;
+    flex-direction: row;
+    position: absolute;            /* Fijar la posición absoluta */
+    top: 0;                    /* Ajusta la distancia desde la parte superior */
+    right: 0;                  /* Ajusta la distancia desde la derecha */
+    margin-right: 10%;
+    margin-top: 2.5%;
+}
+#perfil_icono {
+    height: 55px;
+    position: absolute;            /* Fijar la posición absoluta */
+    top: 0;                    /* Ajusta la distancia desde la parte superior */
+    right: 80px;                  /* Ajusta la distancia desde la derecha */
+}
+
+#menu {
+    position: absolute; /* Posición absoluta para que esté sobre otros elementos */
+    background-color: #74b8e4; /* Fondo blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    z-index: 100; /* Asegura que el menú esté en frente */
+    width: 120px;
+    border-radius: 6px;
+    top: 0;                    /* Ajusta la distancia desde la parte superior */
+    right: -150px;/* Centrar el menú */
+    transform: translateX(-50%); /* Ajustar la posición horizontalmente */
+    margin-top: 10px;
+}
+
+.menu-item {
+    padding: 10px; /* Espaciado interno */
+    text-align: center; /* Alineación a la izquierda */
+    cursor: pointer; /* Indica que es clickable */
+}
+.menu-item:hover {
+    background-color: #f0f0f0; /* Efecto hover */
+    border-radius: 6px;
+}
+
+#bienvenida {
+    position: absolute;
+    top: 25%;
+}
+/* Contenedor del div donde estarán los botones */
+#contenedor_botones {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 60px;                /* Aumentar el padding para más espacio interno */
+    min-width: 300px;            /* Ancho mínimo para el div */
+    min-height: 250px;           /* Altura mínima para el div */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;               /* Usar flexbox para centrar los botones */
+    flex-direction: column;      /* Organizar los botones en columna */
+    justify-content: center;      /* Centrar verticalmente */
+    align-items: center;         /* Centrar horizontalmente */
+    text-align: center;
+    margin-top: 10%;
+}
+
+/* Estilo para los botones */
+.boton {
+    display: block;
+    width: 250px;               /* Aumentar el ancho de los botones */
+    margin: 15px 0;             /* Mantener el margen vertical para más espacio entre botones */
+    padding: 20px 30px;         /* Aumentar el padding para hacer los botones más altos */
+    background-color: #008CBA;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;            /* Aumentar el tamaño de la fuente */
+    transition: background-color 0.3s ease;
+}
+
+/* Cambiar color al pasar el ratón sobre los botones */
+.boton:hover {
+    background-color: #005f73;
+}

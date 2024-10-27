@@ -1,0 +1,63 @@
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+
+#contenido_inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow: auto;
+    background-image: url("../Imagenes/imagen_fondo.jpg");
+    background-size: cover;
+}
+
+/* Estilo del título h1 */
+#contenido_inicio h1 {
+    font-size: 5rem; /* Tamaño grande */
+    color: #D80286; /* Color principal */
+    text-shadow: 0 0 10px rgba(216, 2, 134, 0.7), /* Resplandor */
+                 0 0 20px rgba(216, 2, 134, 0.5),
+                 0 0 30px rgba(216, 2, 134, 0.3);
+    letter-spacing: 0.1em; /* Espaciado entre letras */
+    font-family: 'Varela Round', sans-serif; /* Fuente futurista */
+    animation: move linear 4000ms infinite; /* Añadir movimiento */
+    margin-bottom: 15%;
+}
+
+/* Efecto de movimiento */
+@keyframes move {
+    0% {
+        transform: translateY(0); /* Punto inicial */
+    }
+    50% {
+        transform: translateY(-10px); /* Sube un poco */
+    }
+    100% {
+        transform: translateY(0); /* Regresa */
+    }
+}
+
+#contenido_inicio a {
+    text-decoration: none;
+    color: #FFF;
+    background-color: rgba(50, 0, 50, 0.9); /* Fondo oscuro morado */
+    border: 2px solid rgba(216, 2, 134, 0.8); /* Borde morado */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px 40px; /* Aumento del padding para un botón más grande */
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 18px; /* Aumento del tamaño de fuente */
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 rgba(216, 2, 134, 0.8);
+    transition: ease-out 0.4s;
+    text-transform: uppercase; /* Texto en mayúsculas para un look más futurista */
+}
+
+/* Efecto hover en enlaces */
+#contenido_inicio a:hover {
+    box-shadow: inset 400px 0 0 0 rgba(216, 2, 134, 0.9);
+}

@@ -1,0 +1,56 @@
+/* Estilo general del fondo */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Altura de la ventana del navegador */
+    display: flex; /* Usar flexbox para centrar */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    flex-direction: column; /* Alinear en columna */
+    background-image: url("../Imagenes/imagen_fondo.jpg"); /* Ajusta la ruta de la imagen */
+    background-size: cover; /* Asegúrate de que la imagen cubra toda la pantalla */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Contenedor principal */
+#contenedor_global {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#contenido_leer {
+    position: relative;
+    background-color: white; /* Fondo blanco para el contenedor */
+    border-radius: 15px; /* Bordes redondeados */
+    border: 2px solid black; /* Borde negro */
+    padding: 200px 100px; /* Espaciado interno */
+    max-width: 400px; /* Ancho máximo del contenedor */
+    text-align: center; /* Centrar el texto */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el contenedor */
+    margin-bottom: 30px; /* Margen inferior para separar del botón */
+}
+
+#contenido_leer h2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 5%;
+}
+
+/* Estilo para el enlace de botón personalizado */
+.boton {
+    display: inline-block; /* Para que el botón se comporte como un bloque en línea */
+    padding: 12px 30px; /* Aumentar el espaciado interno del botón */
+    background-color: #aaaaaa; /* Color de fondo */
+    color: black; /* Color del texto en el botón */
+    text-decoration: none; /* Quitar el subrayado */
+    border: 2px solid black; /* Borde negro */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 20px; /* Aumentar el tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición del color de fondo */
+    margin-top: 20px; /* Espacio superior para separar el botón del div */
+}
+

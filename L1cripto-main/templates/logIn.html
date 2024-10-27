@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criptografia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/logIn.css') }}">
+</head>
+<body>
+    <div id="contenedor_general_logIn">
+            <div id="contenedor_logIn">
+                <div id="logIn_usuario">
+                    <div class="titulo">
+                        Inicio de Sesión
+                    </div>
+                    {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                    {% endif %}
+                    <form id="formulario_logIn" name="formulario_logIn" method="POST" action="/logIn">
+                        <input type="text" id="usuario" name="usuario" placeholder="Usuario" required>
+                        <input type="password" placeholder="Contraseña" name="password" required>
+                        <button type="submit" title="Ingresar" name="Iniciar">Entrar</button>
+                    </form>
+                    <div class="pie-form">
+                        <a class="logIn" onclick="abrirModal()">¿Has olvidado tu contraseña?</a>
+                    </div>
+                    <div class="cancelar-form">
+                        <a href="{{ url_for('index') }}">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div id="modalCambiarPassword" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Cambiar Contraseña</h2>
+            <form id="formCambiarPassword" method="POST" action="/nueva_password">
+                <input type="password" name="new_password" placeholder="Nueva Contraseña" required>
+                <input type="password" name="confirm_password" placeholder="Repetir Nueva Contraseña" required>
+                <button type="button" onclick="cambiarPassword()">Confirmar</button>
+            </form>
+            <p id="mensajeError" style="color: red; display:none;"></p>
+        </div>
+    </div>
+    <script>
+        //Variable para almacenar el usuario
+        let currentUser;
+        function abrirModal() {
+            currentUser = document.getElementById("usuario").value; // Almacenar el usuario actual
+            document.getElementById("modalCambiarPassword").style.display = "flex";
+        }
+
+        function cerrarModal() {
+            document.getElementById("modalCambiarPassword").style.display = "none";
+        }
+
+        async function cambiarPassword() {
+            const newPassword = document.forms["formCambiarPassword"]["new_password"].value;
+            const confirmPassword = document.forms["formCambiarPassword"]["confirm_password"].value;
+            const mensajeError = document.getElementById("mensajeError");
+
+            if (newPassword !== confirmPassword) {
+                mensajeError.textContent = "Las contraseñas no coinciden.";
+                mensajeError.style.display = "block";
+                return;
+            }
+
+            const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/;
+            if (!regex.test(newPassword)) {
+                mensajeError.textContent = "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo especial.";
+                mensajeError.style.display = "block";
+                return;
+            }
+
+            // Enviar al backend si pasa la validación
+            const response = await fetch('/nueva_password', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ usuario: currentUser, new_password: newPassword })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                alert("Contraseña actualizada correctamente.");
+                // Redirigir a la nueva página
+                window.location.href = result.redirect;
+            } else {
+                mensajeError.textContent = result.error;
+                mensajeError.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

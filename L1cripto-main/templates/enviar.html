@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Mensajes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/enviar.css') }}">
+</head>
+<body>
+    <div id="contenido_enviar">
+        <h1>Enviar Mensajes</h1>
+
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <form class="formulario" method="POST" action="/enviar">
+            <div class="fila-usuarios">
+                <label for="usuarios">Usuario Receptor:</label>
+                <select name="usuario_receptor" id="usuarios" onchange="actualizarUsuarioReceptor()">
+                    <option value="" disabled selected>Selecciona un usuario</option>
+                    {% for usuario in usuarios %}
+                    <option value="{{ usuario }}">{{ usuario }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <label for="mensaje">Mensaje a enviar:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <button type="submit">Enviar</button> <!-- Este botón se centrará en el div -->
+        </form>
+        <a class="boton" href="{{ url_for('pagina_app') }}">Volver a la aplicación</a>
+    </div>
+</body>
+</html>

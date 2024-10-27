@@ -1,0 +1,161 @@
+/* Estilo general del fondo */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Altura de la ventana del navegador */
+    display: flex; /* Usar flexbox para centrar */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    background-image: url("../Imagenes/imagen_fondo.jpg");
+    background-size: cover; /* Asegúrate de que la imagen cubra toda la pantalla */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Contenedor principal */
+#contenido_enviar {
+    text-align: center; /* Centrar el texto */
+    position: relative;
+}
+
+/* Estilo para el formulario */
+.formulario {
+    position: relative;
+    background-color: white; /* Fondo blanco para el formulario */
+    border-radius: 15px; /* Bordes redondeados */
+    border: 2px solid black; /* Borde negro */
+    padding: 40px 150px; /* Espaciado interno */
+    max-width: 400px; /* Ancho máximo del formulario */
+    margin: 0 auto; /* Centrar horizontalmente */
+    display: flex; /* Hacer el contenedor flexible */
+    flex-direction: column; /* Disposición vertical */
+    justify-content: center; /* Centrar verticalmente los elementos dentro del formulario */
+    height: auto; /* Altura automática para adaptarse al contenido */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Agregar sombra para destacar el formulario */
+}
+
+/* Estilo para el título */
+h1 {
+    font-family: 'Arial', sans-serif; /* Fuente personalizada */
+    font-size: 2.5rem; /* Tamaño del texto */
+    color: #4A90E2; /* Color del título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+}
+
+/* Estilo para los inputs y textarea */
+input[type="text"],
+textarea {
+    margin: 10px 0; /* Margen vertical entre elementos */
+    padding: 10px 15px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 100%; /* Ancho completo */
+    box-sizing: border-box; /* Incluir padding y border en el ancho total */
+}
+
+/* Agrupación en fila solo para usuarios */
+.fila-usuarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra verticalmente el label y el select */
+    gap: 10px; /* Espacio entre el label y el select */
+    margin-bottom: 10px; /* Espacio debajo del contenedor */
+}
+
+.fila-usuarios select {
+    flex-grow: 1; /* Hace que el select se ajuste al tamaño disponible */
+}
+
+/* Estilo para el botón */
+button {
+    margin-top: 20px; /* Espaciado superior del botón */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    background-color: #28a745; /* Color de fondo verde */
+    color: white; /* Color del texto en el botón */
+    border: 2px solid black; /* Borde negro */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 18px; /* Tamaño del texto del botón */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease, transform 0.2s; /* Transición del color de fondo y efecto de escalado */
+    width: 100%; /* Botón ocupa todo el ancho disponible */
+    max-width: 150px; /* Ancho máximo para el botón */
+    align-self: center; /* Asegúrate que esté centrado en su contenedor */
+}
+
+/* Hover para el botón de envío */
+button:hover {
+    background-color: #218838; /* Color de fondo más oscuro */
+    transform: scale(1.05); /* Escala del botón al pasar el cursor */
+}
+
+/* Estilo para el enlace de botón personalizado */
+.boton {
+    display: inline-block; /* Para que el botón se comporte como un bloque en línea */
+    padding: 12px 30px; /* Aumentar el espaciado interno del botón */
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto en el botón */
+    text-decoration: none; /* Quitar el subrayado */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 20px; /* Aumentar el tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease, transform 0.2s; /* Transición del color de fondo y efecto de escalado */
+    margin-top: 20px; /* Espacio superior para separar el botón del div */
+}
+
+/* Hover para el botón de volver a la aplicación */
+.boton:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el cursor */
+    transform: scale(1.05); /* Escala del botón al pasar el cursor */
+}
+
+/* Contenedor que agrupa el botón y la lista */
+.contenedor-boton-lista {
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5%;
+}
+
+/* Estilo del contenedor de la lista de usuarios */
+#listaUsuarios {
+    display: none;
+    margin-left: 10px; /* Ajuste de espacio hacia la derecha del botón */
+    max-height: 500px;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+/* Mostrar la lista cuando está visible */
+#listaUsuarios.show {
+    display: block;
+}
+
+/* Estilo de la lista de usuarios */
+#listaUsuarios ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#listaUsuarios li {
+    padding: 8px 0;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+#listaUsuarios li:last-child {
+    border-bottom: none;
+}
+
+#usuarios-row {
+    margin: 10% 0;
+}
